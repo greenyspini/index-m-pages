@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 · 让运动回归日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafaf9;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+            color: #2c2c2c;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem 1.5rem;
+        }
+
+        /* ---------- 开场 ---------- */
+        .hero {
+            margin-bottom: 3.2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #6b6b6b;
+            border-left: 3px solid #d4a373;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero .prelude {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: #1f1f1f;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* ---------- 承接段落 ---------- */
+        .story {
+            margin-bottom: 3rem;
+        }
+
+        .story p {
+            margin-bottom: 1.5rem;
+            color: #3e3e3e;
+            font-size: 1rem;
+        }
+
+        .story .highlight {
+            background: linear-gradient(to top, #e9dac8 30%, transparent 30%);
+            padding: 0 0.2rem;
+            font-weight: 500;
+        }
+
+        /* ---------- 特点列表 ---------- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2.8rem 0 3.2rem 0;
+        }
+
+        @media (min-width: 520px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #f0ede9;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+            border-color: #d9cdbe;
+        }
+
+        .feature-card .num {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #b78d6a;
+            background: #f3ede6;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 550;
+            margin-bottom: 0.4rem;
+            color: #262626;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #5a5a5a;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ---------- 温和结尾 + 链接 ---------- */
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 2.2rem;
+            border-top: 1px solid #e4ddd2;
+            text-align: left;
+        }
+
+        .closing p {
+            font-size: 1rem;
+            color: #3e3e3e;
+            max-width: 580px;
+        }
+
+        .closing .sentence-link {
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .closing a {
+            color: #7f5f3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #d4b695;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .closing a:hover {
+            color: #4d3621;
+            border-bottom-color: #4d3621;
+        }
+
+        /* ---------- FAQ 摘要（小字号、克制融入） ---------- */
+        .faq-note {
+            margin-top: 3rem;
+            background: #f6f3ef;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+        }
+
+        .faq-note summary {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #3f3f3f;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-note summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-note summary::before {
+            content: "﹖";
+            font-size: 1.1rem;
+            color: #b78d6a;
+            margin-right: 0.3rem;
+        }
+
+        .faq-note .faq-content {
+            margin-top: 1.2rem;
+            font-size: 0.92rem;
+            color: #4d4d4d;
+            line-height: 1.7;
+            border-top: 1px dashed #ddd6cb;
+            padding-top: 1rem;
+        }
+
+        .faq-note .faq-content p {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-note .faq-content a {
+            color: #7f5f3e;
+            border-bottom: 1px solid #cebbaa;
+            text-decoration: none;
+        }
+
+        .faq-note .faq-content a:hover {
+            color: #302216;
+            border-bottom-color: #302216;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .page {
+                padding: 2.8rem 1.2rem 4rem 1.2rem;
+            }
+            .hero .prelude {
+                font-size: 1.5rem;
+            }
+            .feature-card {
+                padding: 1.3rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 开场短句 -->
+        <div class="hero">
+            <p class="prelude">一天结束，换双鞋的事。</p>
+            <p>不是非要大汗淋漓才算运动， 有时候只是想把脑袋里的嗡嗡声， 换成风吹过耳边的节奏。</p>
+        </div>
+
+        <!-- 承接段落：从关键词背后展开 -->
+        <div class="story">
+            <p>
+                你有没有过这样的时刻——下班后在马路牙子边坐了一会儿，看路灯一盏盏亮起来，心里忽然冒出一个念头：<span class="highlight">动一动吧</span>。
+                这个念头很轻，轻到如果不去抓住它，三秒后就会被手机消息冲走。可要是你站起来，沿着街边慢跑一小段，或者随便找个台阶拉伸几分钟，整个晚上的质感都会不一样。
+            </p>
+            <p>
+                这也是为什么很多人慢慢习惯把 <a href="https://index-m-mksport.com" style="color:#7f5f3e; border-bottom:1.5px solid #d4b695; text-decoration:none; font-weight:500;">mk体育</a> 放进日常清单里——不是为了冲击什么目标，而是让身体记得那种舒展开的、属于自己的节奏。不需要复杂的装备，也不需要提前做心理建设，从一次散步、一次居家跟练，或是一段随意的球类活动开始，就够了。
+            </p>
+        </div>
+
+        <!-- 特点列表：四个侧面，生活化表达 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="num">01</span>
+                <h3>门槛低过你想象</h3>
+                <p>没有体能测试，没有打卡焦虑。哪怕只是每天十分钟的舒展，也能慢慢攒出轻盈感。</p>
+            </div>
+            <div class="feature-card">
+                <span class="num">02</span>
+                <h3>内容跟着感觉走</h3>
+                <p>从热身、力量到球类技巧，像翻一本杂志那样随兴选择，今天想练哪页就练哪页。</p>
+            </div>
+            <div class="feature-card">
+                <span class="num">03</span>
+                <h3>搭子在屏幕里</h3>
+                <p>一个人练太闷？社区里的片段、提示和记录，让你觉得好像有人在旁边一起喘气。</p>
+            </div>
+            <div class="feature-card">
+                <span class="num">04</span>
+                <h3>安静支持不打扰</h3>
+                <p>没有弹窗广告，没有花哨促销。界面干净到你可以把它放在手机角落，想用的时候打开就行。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 自然嵌入链接 -->
+        <div class="closing">
+            <p>
+                我们常常高估一天能做的事，却低估一个月能累积的变化。运动不该是生活里额外的一门功课，它本就是一种休息。
+            </p>
+            <p class="sentence-link">
+                如果你也愿意试着把运动放回日常，不妨去 <a href="https://index-m-mksport.com">mk体育</a> 看看。那里没有口号，只有一些陪你动起来的想法。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要（极简、克制，非模板重复） -->
+        <details class="faq-note">
+            <summary>几个常见疑问</summary>
+            <div class="faq-content">
+                <p><strong>适合完全零基础的人吗？</strong> 当然。很多内容就是为从不运动的人设计的，每个动作都有退阶版本。</p>
+                <p><strong>需要下载 App 吗？</strong> 不需要。直接在浏览器里使用，手机、平板、电脑都行，没有任何安装负担。</p>
+                <p><strong>怎么找到自己想练的？</strong> 按部位、按时长、按强度筛选，或者干脆随机翻一个，试试看。</p>
+                <p>如果你还想了解更多，<a href="https://index-m-mksport.com">mk体育</a> 首页有更具体的介绍，随时可以翻翻。</p>
+            </div>
+        </details>
+
+    </div>
+</body>
+</html>
